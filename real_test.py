@@ -3,9 +3,9 @@ would take them, scored against each template's exact answer key (notes and rest
 sheet-music-photos benchmark). The flat page of every template is read too, so photo damage shows as the rise from
 flat to photo.
 
-real_test/<model>/ holds T<nn>__<photo>.jpg and T<nn>__flat.png; homr reads it with omr/overnight_run.py.
+real_test/<model>/ holds T<nn>__<photo>.jpg and T<nn>__flat.png; homr reads it first (homr <folder>).
 
-Run: PYTHONPATH=<homr checkout with validation/> omr/.venv-homr-gpu/Scripts/python research/synthetic-omr/real_test.py m480 tuned
+Run: PYTHONPATH=<homr checkout with validation/> python real_test.py m480 tuned
 """
 import statistics
 import sys

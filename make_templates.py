@@ -6,7 +6,7 @@ the page is cut off by the frame. Page k carries the mark ids 8k .. 8k+7, in the
 
 Three kinds of music, so the photos show old and modern ink:
   old      the 22 sheet-music-photos pages in templates/src_old (print.pdf, pre-1930 scans; answer key in that repo)
-  lilypond Mutopia pages engraved by LilyPond (omr/runs/overnight/pdf; answer key only as MIDI)
+  lilypond Mutopia pages engraved by LilyPond (MUTOPIA in paths.py; answer key only as MIDI)
   verovio  OpenScore Lieder (voice + piano) and ASAP (piano) excerpts engraved by Verovio in five fonts and three
            sizes; the exact answer key is written next to the page
 
@@ -14,7 +14,7 @@ Writes templates/flat/T<nn>.png (the flat page at 300 dpi, what the photo is com
 templates/keys/T<nn>.musicxml (verovio pages), templates/templates.json and templates/templates.pdf (to print at
 100%, no "fit to page").
 
-Run: server/.venv/Scripts/python research/synthetic-omr/make_templates.py
+Run: python make_templates.py
 """
 import json
 import random
@@ -29,9 +29,9 @@ import resvg_py
 import verovio
 
 from make_pages import first_measures, read_mxl
+from paths import ASAP, LIEDER, MUTOPIA
 
 HERE = Path(__file__).parent
-ROOT = HERE.parent.parent
 OUT = HERE / 'templates'
 W, H = 2480, 3508  # A4 at 300 dpi
 MM = 300 / 25.4
@@ -43,9 +43,6 @@ MARK_SPOTS = ['top left', 'top middle', 'top right', 'right middle', 'bottom rig
 ARUCO = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_1000)
 FONTS = ['Leipzig', 'Bravura', 'Gootville', 'Leland', 'Petaluma']
 SIZES = [30, 40, 55]  # Verovio scale: small, normal, large staves
-MUTOPIA = ROOT / 'omr' / 'runs' / 'overnight'
-LIEDER = ROOT / 'omr' / 'runs' / 'lieder_full' / 'repo' / 'scores'
-ASAP = ROOT / 'omr' / 'runs' / 'asap' / 'asap'
 
 
 def mark_centers():

@@ -5,7 +5,7 @@ light and camera angle are new to it, and so are the songs.
 This only shows whether the training works at all. Generated photos are not real ones: whether real phone photos read
 better can only be seen on real photos with answer keys (T43-T50).
 
-Run in omr/.venv-train, with PYTHONPATH=omr/runs/model480/homr (the copy of homr's code that matches model 480):
+Run with PYTHONPATH=<a homr checkout whose code matches model 480> and torch installed:
   fine_tune.py split               train.txt and test.txt from train_photos/index.txt
   fine_tune.py score [weights]     symbol error on the test staves (default: model 480 as published)
   fine_tune.py train [epochs]      writes train_photos/run/fine_tuned.pth
@@ -15,12 +15,13 @@ import statistics
 import sys
 from pathlib import Path
 
+from paths import MODEL_480
+
 os.environ.setdefault('USE_TF', '0')  # transformers would load the system Python's TensorFlow, broken with numpy 2
 
 HERE = Path(__file__).parent
 OUT = HERE / 'train_photos'
 RUN = OUT / 'run'
-MODEL_480 = HERE.parent.parent / 'omr/runs/model480/download/pytorch_model_480-5eed84636c96eca5ce6d8e2f62580b74e7ed85e8.pth'
 TEST_PAPER = {'IMG_20261027_171957', 'IMG_20261027_172018', 'IMG_20261027_172034'}  # the photos of T29
 
 

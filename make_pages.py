@@ -5,7 +5,7 @@ cuts each to as many measures as fit on one A4 page in Verovio, and writes for e
   <name>.musicxml  the measures on the page (the answer key)
   <name>.png       the page engraved flat, 1240 x 1754 (A4 at 150 dpi, as in spike_uvdoc.py)
 
-Run: server/.venv/Scripts/python research/synthetic-omr/make_pages.py <how many>
+Run: python make_pages.py <how many>
 """
 import random
 import re
@@ -19,8 +19,10 @@ import numpy as np
 import resvg_py
 import verovio
 
+from paths import LIEDER
+
 HERE = Path(__file__).parent
-SCORES = HERE.parent.parent / 'omr' / 'runs' / 'lieder_full' / 'repo' / 'scores'
+SCORES = LIEDER
 OUT = HERE / 'pages'
 OUT.mkdir(exist_ok=True)
 OPTIONS = {'pageWidth': 2100, 'pageHeight': 2970, 'scale': 40, 'adjustPageHeight': False, 'footer': 'none'}

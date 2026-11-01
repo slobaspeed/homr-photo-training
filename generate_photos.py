@@ -5,7 +5,7 @@ over, and the new page darkens the paper as much as the photo's own ink does. Wr
   <photo>__<song>.jpg   the generated photo
   <song>__flat.png      the flat page itself (homr's "clean scan" baseline for that song)
 
-Run: server/.venv/Scripts/python research/synthetic-omr/generate_photos.py <sheet-music-photos page folder>
+Run: python generate_photos.py <sheet-music-photos page folder>
 """
 import shutil
 import sys

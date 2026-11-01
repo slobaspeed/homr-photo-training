@@ -16,7 +16,7 @@ area only:
 
 Writes trial_check/<photo>.jpg (the same patch, real left, generated right) and prints the table.
 
-Run: server/.venv/Scripts/python research/synthetic-omr/trial_check.py
+Run: python trial_check.py
 """
 import collections
 import json

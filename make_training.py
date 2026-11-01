@@ -18,8 +18,8 @@ Two steps, in two Pythons (the generator needs torch, homr's staff finder runs i
 Only photos of pages T23 and up are used: T01-T22 are the music of homr's photo test set, and erased music can leave
 traces. Songs on the test pages T35-T50 are left out.
 
-Run:  server/.venv/Scripts/python research/synthetic-omr/make_training.py pages [songs]
-      PYTHONPATH=<homr checkout> omr/.venv-homr-gpu/Scripts/python research/synthetic-omr/make_training.py cut
+Run:  python make_training.py pages [songs]
+      PYTHONPATH=<homr checkout> python make_training.py cut
 """
 import collections
 import json
