@@ -1,0 +1,9 @@
+third_party/
+__pycache__/
+templates/
+trial/
+trial_check/
+train_photos/
+real_test/
+pages/
+gen/
